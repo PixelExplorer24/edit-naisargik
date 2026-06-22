@@ -179,8 +179,8 @@
         </div>
     </div>
 
-    <!-- Smart Toast Notification -->
-    <div id="toast" class="fixed bottom-24 md:bottom-6 md:right-6 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto bg-gray-900 text-white px-6 py-4 rounded-2xl shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-[110] flex items-center gap-3 w-[92%] md:w-auto">
+    <!-- Smart Toast Notification (z-index updated to 9999 for top visibility) -->
+    <div id="toast" class="fixed bottom-24 md:bottom-6 md:right-6 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto bg-gray-900 text-white px-6 py-4 rounded-2xl shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-[9999] flex items-center gap-3 w-[92%] md:w-auto">
         <div id="toast-icon-container" class="p-1 rounded-full bg-emerald-500 text-white flex-shrink-0 flex items-center justify-center w-6 h-6">
             <i class="fa-solid fa-check text-xs"></i>
         </div>
@@ -405,6 +405,14 @@
                     <span id="modal-product-regular-price" class="text-lg text-gray-400 line-through font-medium hidden">৳ 0</span>
                 </div>
 
+                <!-- NEW: Variants Container -->
+                <div id="modal-variants-container" class="hidden mb-6">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">পরিমাণ নির্বাচন করুন:</label>
+                    <div id="modal-variants-options" class="flex flex-wrap gap-2">
+                        <!-- Variants will be injected here -->
+                    </div>
+                </div>
+
                 <!-- Rich Text Description Support Container -->
                 <div id="modal-product-desc" class="rich-text text-sm md:text-base text-gray-600 mb-8 font-medium leading-relaxed">
                     <!-- বিবরণ এখানে রেন্ডার হবে (innerHTML দিয়ে) -->
@@ -511,14 +519,13 @@
         </div>
     </div>
 
-    <!-- Alert Modal -->
-    <div id="public-alert-modal-overlay" class="fixed inset-0 bg-black/60 z-[70] hidden transition-opacity duration-300 opacity-0 backdrop-blur-sm" onclick="window.closeAlertModal()"></div>
-    <div id="public-alert-modal" class="fixed inset-0 z-[80] hidden flex items-center justify-center p-4 pointer-events-none">
+    <!-- Alert Modal (z-index updated to 9998/9999 for top visibility) -->
+    <div id="public-alert-modal-overlay" class="fixed inset-0 bg-black/60 z-[9998] hidden transition-opacity duration-300 opacity-0 backdrop-blur-sm" onclick="window.closeAlertModal()"></div>
+    <div id="public-alert-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-4 pointer-events-none">
         <div id="public-alert-modal-content" class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col transform scale-95 transition-all duration-300 pointer-events-auto p-8 text-center">
             <div class="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-5 text-primary text-4xl shadow-inner border border-emerald-100"><i class="fa-solid fa-circle-check"></i></div>
             <h2 class="text-3xl font-black text-gray-900 mb-3">ধন্যবাদ!</h2>
             <p class="text-gray-600 mb-8 text-base font-medium leading-relaxed">আপনার অর্ডারটি সফলভাবে আমাদের কাছে পৌঁছেছে।</p>
-            <p class="text-xs text-gray-400 mt-4 text-center">নোট: আসল অ্যাডমিন পাসওয়ার্ড দিলে এডিট মোড চালু হবে। ভুল দিলে গেস্ট হিসেবে লগইন হবে।</p>
             <button onclick="window.closeAlertModal()" class="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primaryHover transition-colors shadow-lg text-lg">বন্ধ করুন</button>
         </div>
     </div>
@@ -558,6 +565,8 @@
         let slideInterval;
         let currentUploadAction = null; 
         let catScrollInterval;
+        let currentModalProduct = null;
+        let selectedVariant = null;
 
         // Default Homepage Data
         let homepageData = {
@@ -1082,13 +1091,13 @@
                             
                             <div class="mt-auto pt-3 flex flex-col gap-3" onclick="event.stopPropagation()">
                                 <div class="flex items-center gap-2">
-                                    <span class="text-base sm:text-lg md:text-xl font-black text-gray-900">৳ ${product.price}</span>
-                                    ${product.regularPrice ? `<span class="text-[10px] sm:text-xs text-gray-400 line-through font-medium">৳ ${product.regularPrice}</span>` : ''}
+                                    <span class="text-base sm:text-lg md:text-xl font-black text-gray-900">৳ ${product.variants && product.variants.length > 0 ? product.variants[0].price : product.price}</span>
+                                    ${!product.variants && product.regularPrice ? `<span class="text-[10px] sm:text-xs text-gray-400 line-through font-medium">৳ ${product.regularPrice}</span>` : ''}
                                 </div>
-                                <button onclick="window.addProductToCart('${product.id}')" 
+                                <button onclick="${product.variants && product.variants.length > 0 ? `window.openProductModal('${product.id}')` : `window.addProductToCart('${product.id}')`}" 
                                     class="w-full ${isOutOfStock ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-emerald-50 hover:bg-primary text-primary hover:text-white'} font-bold py-2 md:py-2.5 rounded-xl transition-all text-xs md:text-sm flex justify-center items-center gap-2 group/btn"
                                     ${isOutOfStock ? 'disabled' : ''}>
-                                    <i class="fa-solid fa-basket-shopping ${isOutOfStock ? '' : 'group-hover/btn:-translate-y-0.5 transition-transform'}"></i> <span>${isOutOfStock ? 'স্টক শেষ' : 'কার্টে যোগ করুন'}</span>
+                                    <i class="fa-solid ${product.variants && product.variants.length > 0 ? 'fa-eye' : 'fa-basket-shopping'} ${isOutOfStock ? '' : 'group-hover/btn:-translate-y-0.5 transition-transform'}"></i> <span>${isOutOfStock ? 'স্টক শেষ' : (product.variants && product.variants.length > 0 ? 'অপশন দেখুন' : 'কার্টে যোগ করুন')}</span>
                                 </button>
                             </div>
                         </div>
@@ -1101,18 +1110,44 @@
         window.openProductModal = (id, skipHistory = false) => {
             const product = allProducts.find(p => p.id === id);
             if(!product) return;
+            
+            currentModalProduct = product;
+            selectedVariant = null;
 
             document.getElementById('modal-product-img').src = product.imageUrl || "https://placehold.co/400x400/e2e8f0/64748b?text=Product";
             document.getElementById('modal-product-title').innerText = product.name;
             document.getElementById('modal-product-category').innerText = product.category || 'অর্গানিক';
-            document.getElementById('modal-product-price').innerText = `৳ ${product.price}`;
             
-            const regPrice = document.getElementById('modal-product-regular-price');
-            if(product.regularPrice) {
-                regPrice.innerText = `৳ ${product.regularPrice}`;
-                regPrice.classList.remove('hidden');
+            const priceEl = document.getElementById('modal-product-price');
+            const regPriceEl = document.getElementById('modal-product-regular-price');
+            const variantsContainer = document.getElementById('modal-variants-container');
+            const variantsOptions = document.getElementById('modal-variants-options');
+
+            // Handle Variants (Weight-based pricing)
+            if (product.variants && product.variants.length > 0) {
+                variantsContainer.classList.remove('hidden');
+                selectedVariant = product.variants[0]; // Default to first variant
+                
+                variantsOptions.innerHTML = product.variants.map((v, idx) => `
+                    <label class="cursor-pointer">
+                        <input type="radio" name="product_variant" value="${idx}" class="peer sr-only" ${idx === 0 ? 'checked' : ''} onchange="window.selectVariant(${idx})">
+                        <div class="px-4 py-2 rounded-xl border-2 border-gray-200 peer-checked:border-primary peer-checked:bg-emerald-50 peer-checked:text-primary text-gray-600 font-bold text-sm transition-all hover:bg-gray-50">
+                            ${v.weight}
+                        </div>
+                    </label>
+                `).join('');
+                
+                priceEl.innerText = `৳ ${selectedVariant.price}`;
+                regPriceEl.classList.add('hidden');
             } else {
-                regPrice.classList.add('hidden');
+                variantsContainer.classList.add('hidden');
+                priceEl.innerText = `৳ ${product.price}`;
+                if(product.regularPrice) {
+                    regPriceEl.innerText = `৳ ${product.regularPrice}`;
+                    regPriceEl.classList.remove('hidden');
+                } else {
+                    regPriceEl.classList.add('hidden');
+                }
             }
 
             document.getElementById('modal-product-desc').innerHTML = product.description || "এই পণ্যের কোন বিস্তারিত বিবরণ দেওয়া হয়নি। সম্পূর্ণ খাঁটি এবং প্রাকৃতিক উপাদান দিয়ে তৈরি, আপনার পরিবারের সুস্বাস্থ্যের জন্য নির্ভরযোগ্য একটি পণ্য।";
@@ -1125,7 +1160,7 @@
             } else {
                 btn.innerHTML = `<i class="fa-solid fa-basket-shopping"></i> কার্টে যোগ করুন`;
                 btn.className = "w-full bg-primary hover:bg-primaryHover text-white font-bold py-4 rounded-xl shadow-xl shadow-emerald-600/20 transition-transform transform hover:scale-[1.02] flex justify-center items-center gap-3 text-lg";
-                btn.onclick = () => { window.addProductToCart(product.id); window.closeProductModal(); };
+                btn.onclick = () => { window.addModalProductToCart(); window.closeProductModal(); };
             }
 
             const modal = document.getElementById('product-details-modal');
@@ -1158,6 +1193,31 @@
             if (skipHistory !== true && window.location.hash.startsWith('#product-')) {
                 window.history.back();
             }
+        };
+
+        window.selectVariant = (idx) => {
+            if(!currentModalProduct || !currentModalProduct.variants) return;
+            selectedVariant = currentModalProduct.variants[idx];
+            document.getElementById('modal-product-price').innerText = `৳ ${selectedVariant.price}`;
+        };
+
+        window.addModalProductToCart = () => {
+            if(!currentModalProduct) return;
+            let cartItemId = currentModalProduct.id;
+            let cartItemName = currentModalProduct.name;
+            let cartItemPrice = Number(currentModalProduct.price);
+
+            if(selectedVariant) {
+                cartItemId = `${currentModalProduct.id}-${selectedVariant.weight}`;
+                cartItemName = `${currentModalProduct.name} (${selectedVariant.weight})`;
+                cartItemPrice = Number(selectedVariant.price);
+            }
+
+            const existing = cart.find(item => item.id === cartItemId);
+            if (existing) existing.quantity++;
+            else cart.push({ id: cartItemId, name: cartItemName, price: cartItemPrice, image: currentModalProduct.imageUrl, quantity: 1, baseProductId: currentModalProduct.id });
+            
+            updateCartUI(); window.openCart(); window.showNotification("কার্টে যুক্ত করা হয়েছে!");
         };
 
         // Render Dropdown Categories Dynamically
@@ -1355,22 +1415,27 @@
 
             const nowIso = new Date().toISOString();
             const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const orderId = 'ORD-' + Date.now().toString().slice(-6) + Math.floor(Math.random() * 10);
 
             // Updated order structure matching admin exactly
             const orderData = {
+                orderId: orderId,
                 customer: { name, phone, address },
                 customerName: name, // For Admin Table Support
                 customerPhone: phone,
                 customerAddress: address,
                 items: cart,
+                subTotal: totalAmount,
                 deliveryCharge: 0,
-                totalAmount: totalAmount, // Added
-                totalPrice: totalAmount,  // Updated name mapping
+                totalAmount: totalAmount, 
+                totalPrice: totalAmount,  // Updated name mapping to support all variations
                 status: 'new', // Using lowercase 'new' exactly as needed in admin
+                paymentMethod: 'Cash on Delivery',
                 date: nowIso,
                 createdAt: nowIso,
                 newAt: nowIso,
-                statusUpdatedAt: nowIso
+                statusUpdatedAt: nowIso,
+                timestamp: Date.now()
             };
 
             try {
@@ -1378,6 +1443,7 @@
                 cart = []; updateCartUI(); backToCartItems(); window.closeCart();
                 document.getElementById('cust-name').value = ''; document.getElementById('cust-phone').value = ''; document.getElementById('cust-address').value = '';
                 
+                // Show high z-index success modal
                 const modal = document.getElementById('public-alert-modal');
                 const overlay = document.getElementById('public-alert-modal-overlay');
                 overlay.classList.remove('hidden'); modal.classList.remove('hidden');
