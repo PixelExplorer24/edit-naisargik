@@ -213,47 +213,47 @@
         </div>
     </div>
 
-    <!-- UNIFIED HEADER (Non-sticky Header with Large Clear Logo) -->
+    <!-- UNIFIED HEADER (Non-sticky Header with Large Premium Logo) -->
     <header class="glass-nav border-b border-emerald-100 shadow-sm w-full transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6 flex justify-between items-center gap-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-7 flex justify-between items-center gap-4">
             
-            <a href="#" onclick="window.scrollTo(0,0); return false;" class="flex items-center gap-3 sm:gap-4 cursor-pointer group shrink-0">
+            <a href="#" onclick="window.scrollTo(0,0); return false;" class="flex items-center gap-3 sm:gap-5 cursor-pointer group shrink-0">
                 <!-- Clear Premium Big Logo -->
-                <img id="public-logo" src="" class="brand-logo hidden h-20 sm:h-24 md:h-28 lg:h-32 w-auto max-w-[280px] md:max-w-[360px] object-contain transition-transform group-hover:scale-105" alt="Logo">
-                <div class="brand-initial w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-primary text-white rounded-2xl flex items-center justify-center font-bold text-3xl sm:text-4xl md:text-5xl shadow-md transition-transform group-hover:scale-105">N</div>
-                <span id="brand-text" class="font-extrabold text-2xl sm:text-3xl md:text-5xl text-primary tracking-tight">Naisargik</span>
+                <img id="public-logo" src="" class="brand-logo hidden h-24 sm:h-28 md:h-32 lg:h-36 w-auto max-w-[300px] md:max-w-[400px] object-contain transition-transform group-hover:scale-105" alt="Logo">
+                <div class="brand-initial w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-primary text-white rounded-2xl flex items-center justify-center font-bold text-4xl sm:text-5xl md:text-6xl shadow-md transition-transform group-hover:scale-105">N</div>
+                <span id="brand-text" class="font-extrabold text-3xl sm:text-4xl md:text-6xl text-primary tracking-tight">Naisargik</span>
             </a>
             
             <div class="hidden md:flex flex-1 max-w-xl relative group">
-                <input type="text" id="desktop-search" oninput="window.handleSearch(this.value)" placeholder="পছন্দের পণ্য খুঁজুন..." class="w-full pl-5 pr-12 py-3.5 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary focus:bg-white transition-all text-sm font-medium shadow-inner">
+                <input type="text" id="desktop-search" oninput="window.handleSearch(this.value)" placeholder="পছন্দের পণ্য খুঁজুন..." class="w-full pl-5 pr-12 py-4 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary focus:bg-white transition-all text-sm font-medium shadow-inner">
                 <button class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">
                     <i class="fa-solid fa-magnifying-glass text-lg"></i>
                 </button>
             </div>
 
-            <div class="flex items-center gap-1.5 md:gap-3 shrink-0">
-                <button onclick="window.handleLogout()" class="p-2.5 text-gray-500 hover:text-primary hover:bg-emerald-50 rounded-full transition-all" title="লগআউট করুন">
-                    <i class="fa-solid fa-right-from-bracket text-xl"></i>
+            <div class="flex items-center gap-2 md:gap-4 shrink-0">
+                <button onclick="window.handleLogout()" class="p-3 text-gray-500 hover:text-primary hover:bg-emerald-50 rounded-full transition-all" title="লগআউট করুন">
+                    <i class="fa-solid fa-right-from-bracket text-2xl"></i>
                 </button>
-                <button class="p-2.5 text-gray-500 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all hidden sm:block" title="উইশলিস্ট">
-                    <i class="fa-regular fa-heart text-xl"></i>
+                <button class="p-3 text-gray-500 hover:text-rose-500 hover:bg-rose-50 rounded-full transition-all hidden sm:block" title="উইশলিস্ট">
+                    <i class="fa-regular fa-heart text-2xl"></i>
                 </button>
-                <button onclick="window.openCart()" class="relative p-2.5 md:p-3 text-primary hover:bg-emerald-50 rounded-xl transition-all border border-transparent hover:border-emerald-100/50 flex items-center gap-2">
+                <button onclick="window.openCart()" class="relative p-3 md:p-4 text-primary hover:bg-emerald-50 rounded-xl transition-all border border-transparent hover:border-emerald-100/50 flex items-center gap-2">
                     <div class="relative">
-                        <i class="fa-solid fa-bag-shopping text-xl md:text-2xl"></i>
-                        <span id="cart-count" class="absolute -top-2 -right-2 bg-secondary text-white text-[10px] md:text-xs font-bold w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm">0</span>
+                        <i class="fa-solid fa-bag-shopping text-2xl md:text-3xl"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-secondary text-white text-[10px] md:text-xs font-bold w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center border-2 border-white shadow-sm">0</span>
                     </div>
-                    <span class="hidden lg:block font-bold text-sm text-gray-700">কার্ট</span>
+                    <span class="hidden lg:block font-bold text-base text-gray-700">কার্ট</span>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Search -->
-        <div class="md:hidden px-4 pb-4">
+        <div class="md:hidden px-4 pb-5">
             <div class="relative w-full group">
-                <input type="text" id="mobile-search" oninput="window.handleSearch(this.value)" placeholder="পছন্দের পণ্য খুঁজুন..." class="w-full pl-4 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white transition-all text-sm shadow-inner">
+                <input type="text" id="mobile-search" oninput="window.handleSearch(this.value)" placeholder="পছন্দের পণ্য খুঁজুন..." class="w-full pl-4 pr-10 py-3.5 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white transition-all text-sm shadow-inner">
                 <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
                 </button>
             </div>
         </div>
@@ -285,9 +285,9 @@
         </div>
     </section>
 
-    <!-- FEATURED CATEGORIES SECTION (Auto-Scrolling Circular Categories - Perfectly Adjusted Spacing) -->
-    <section class="w-full max-w-7xl mx-auto mt-8 md:mt-12 mb-4 md:mb-6 px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-4">
+    <!-- FEATURED CATEGORIES SECTION (Auto-Scrolling Circular Categories - Spacing Adjusted) -->
+    <section class="w-full max-w-7xl mx-auto mt-6 md:mt-10 mb-2 px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-3">
             <h3 class="text-xl md:text-3xl font-extrabold text-gray-900">জনপ্রিয় <span class="text-primary">ক্যাটাগরি</span></h3>
         </div>
         
@@ -305,18 +305,18 @@
         </div>
     </section>
 
-    <!-- PRODUCT CATALOG SECTION (Reduced Py for modern spacing) -->
-    <section id="products-section" class="py-10 md:py-16 bg-emerald-50/30 flex-1 border-t border-emerald-100">
+    <!-- PRODUCT CATALOG SECTION (Premium Spacing Adjusted with Topdown Filters) -->
+    <section id="products-section" class="pt-8 pb-16 md:pt-12 md:pb-24 bg-emerald-50/30 flex-1 border-t border-emerald-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="text-center mb-8">
-                <h2 data-editable="true" data-field="collectionTitle" class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">আমাদের সংগ্রহ</h2>
+            <div class="text-center mb-6">
+                <h2 data-editable="true" data-field="collectionTitle" class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">আমাদের সংগ্রহ</h2>
                 <div class="w-20 h-1.5 bg-secondary mx-auto rounded-full mb-3"></div>
                 <p data-editable="true" data-field="collectionSubtitle" class="text-gray-600 max-w-md mx-auto text-sm md:text-base font-medium" id="product-section-subtitle">খাঁটি এবং প্রাকৃতিক খাবারের সেরা কালেকশন থেকে আপনার পছন্দের পণ্যটি বেছে নিন</p>
             </div>
 
-            <!-- PREMIUM FILTER PANEL -->
-            <div class="bg-white rounded-[1.5rem] border border-emerald-100 p-4 md:p-6 mb-10 shadow-sm max-w-5xl mx-auto">
+            <!-- PREMIUM TOPDOWN FILTER PANEL -->
+            <div class="bg-white rounded-[1.5rem] border border-emerald-100 p-4 md:p-6 mb-8 shadow-sm max-w-5xl mx-auto">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
                     <!-- Dropdown Category -->
                     <div>
@@ -1215,7 +1215,7 @@
 
         function renderFooterLinks() {
             const useContainer = document.getElementById('useful-links-container');
-            const"socContainer = document.getElementById('social-links-container');
+            const socContainer = document.getElementById('social-links-container');
             if(!useContainer || !socContainer) return;
 
             // Useful Links
