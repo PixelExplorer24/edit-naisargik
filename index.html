@@ -87,13 +87,13 @@
 
         /* Improved Product Card */
         .product-card {
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 2px 10px -3px rgba(0, 0, 0, 0.05);
         }
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 25px -5px rgba(21, 128, 61, 0.12), 0 8px 10px -6px rgba(21, 128, 61, 0.05);
-            border-color: rgba(21, 128, 61, 0.2);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(21, 128, 61, 0.15), 0 10px 10px -5px rgba(21, 128, 61, 0.04);
+            border-color: rgba(21, 128, 61, 0.25);
         }
 
         /* Slider Animations */
@@ -321,7 +321,7 @@
                 <!-- Products Grid & Sort Bar - Smart & Clear Design -->
                 <div class="flex-1 w-full min-w-0 flex flex-col gap-4">
                     
-                    <!-- NEW: Sort Bar (Matching Attached Image) -->
+                    <!-- Sort Bar (Matching Attached Image) -->
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-3 sm:pb-4 border-b border-gray-200/60 w-full">
                         <div class="text-sm text-gray-500" id="search-result-text">
                             <span id="product-count" class="font-bold text-gray-800">0</span> items found
@@ -405,7 +405,7 @@
                     <span id="modal-product-regular-price" class="text-lg text-gray-400 line-through font-medium hidden">৳ 0</span>
                 </div>
 
-                <!-- NEW: Variants Container -->
+                <!-- Variants Container -->
                 <div id="modal-variants-container" class="hidden mb-6">
                     <label class="block text-sm font-bold text-gray-700 mb-2">পরিমাণ নির্বাচন করুন:</label>
                     <div id="modal-variants-options" class="flex flex-wrap gap-2">
@@ -1013,7 +1013,7 @@
             renderPublicProducts();
         }
 
-        // Updated Smart, Premium & Clear Product Card Design with Compact Topdown Filters
+        // Updated Premium Card Design (Perfect Aspect-Ratio Image fitting & No Gaps)
         function renderPublicProducts() {
             const container = document.getElementById('public-products-container');
             const subtitle = document.getElementById('product-section-subtitle');
@@ -1076,9 +1076,10 @@
                     <div onclick="window.openProductModal('${product.id}')" class="product-card bg-white rounded-2xl overflow-hidden flex flex-col relative group cursor-pointer border border-gray-100/80 ${isOutOfStock ? 'opacity-80' : ''}">
                         ${isOutOfStock ? `<div class="absolute top-2 md:top-3 left-2 md:left-3 bg-red-600/90 backdrop-blur text-white text-[9px] md:text-[10px] font-black px-2 py-1 md:px-3 md:py-1.5 rounded-full z-10 shadow-sm uppercase">স্টক শেষ</div>` : ''}
                         
-                        <!-- Minimalist Image Section -->
-                        <div class="relative h-36 sm:h-48 md:h-52 w-full p-4 flex items-center justify-center bg-[#f8fafc] group-hover:bg-[#f1f5f9] transition-colors">
-                            <img src="${imgUrl}" alt="${product.name}" class="product-img w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/e2e8f0/64748b?text=Product'">
+                        <!-- Premium Aspect Ratio 1:1 Image Section with Hover Zoom -->
+                        <div class="relative aspect-square w-full bg-[#f8fafc] group-hover:bg-[#f1f5f9] transition-colors flex items-center justify-center overflow-hidden">
+                            <img src="${imgUrl}" alt="${product.name}" class="product-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/e2e8f0/64748b?text=Product'">
+                            <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
 
                         <!-- Content Section -->
