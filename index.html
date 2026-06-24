@@ -155,7 +155,9 @@
             <div class="absolute w-24 h-24 bg-primary/20 rounded-full animate-ping"></div>
             <div class="absolute w-32 h-32 bg-primary/10 rounded-full animate-pulse delay-150"></div>
             
+            <!-- Dynamic Short Logo -->
             <img id="loader-short-logo" src="" class="hidden relative w-20 h-20 object-contain animate-bounce drop-shadow-2xl rounded-2xl z-10" alt="Short Logo">
+            <!-- Default Icon Fallback -->
             <div id="loader-default-icon" class="relative w-16 h-16 bg-gradient-to-tr from-primary to-emerald-400 text-white rounded-2xl flex items-center justify-center font-bold text-3xl shadow-2xl animate-bounce z-10">
                 <i class="fa-solid fa-leaf"></i>
             </div>
@@ -164,7 +166,7 @@
         <p class="mt-1 text-gray-400 text-sm font-medium">প্রস্তুত হচ্ছে...</p>
     </div>
 
-    <!-- Custom Confirm Modal -->
+    <!-- Custom Confirm Modal (Replacing native confirm) -->
     <div id="custom-confirm-modal" class="fixed inset-0 z-[120] hidden flex items-center justify-center p-4 backdrop-blur-sm bg-black/60 transition-opacity">
         <div class="bg-white p-6 rounded-3xl shadow-2xl max-w-sm w-full text-center transform scale-95 transition-transform duration-300">
             <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 text-red-500 text-3xl">
@@ -178,7 +180,7 @@
         </div>
     </div>
 
-    <!-- Smart Toast Notification -->
+    <!-- Smart Toast Notification (z-index updated to 9999 for top visibility) -->
     <div id="toast" class="fixed bottom-24 md:bottom-6 md:right-6 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto bg-gray-900 text-white px-6 py-4 rounded-2xl shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-[9999] flex items-center gap-3 w-[92%] md:w-auto">
         <div id="toast-icon-container" class="p-1 rounded-full bg-emerald-500 text-white flex-shrink-0 flex items-center justify-center w-6 h-6">
             <i class="fa-solid fa-check text-xs"></i>
@@ -212,11 +214,12 @@
         </div>
     </div>
 
-    <!-- UNIFIED HEADER -->
+    <!-- UNIFIED HEADER (Non-sticky Header with Large Premium Logo) -->
     <header class="glass-nav border-b border-emerald-100 shadow-sm w-full transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 md:py-7 flex justify-between items-center gap-4">
             
             <a href="#" onclick="window.scrollTo(0,0); return false;" class="flex items-center gap-3 sm:gap-5 cursor-pointer group shrink-0">
+                <!-- Clear Premium Big Logo -->
                 <img id="public-logo" src="" class="brand-logo hidden h-24 sm:h-28 md:h-32 lg:h-36 w-auto max-w-[300px] md:max-w-[400px] object-contain transition-transform group-hover:scale-105" alt="Logo">
                 <div class="brand-initial w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-primary text-white rounded-2xl flex items-center justify-center font-bold text-4xl sm:text-5xl md:text-6xl shadow-md transition-transform group-hover:scale-105">N</div>
                 <span id="brand-text" class="font-extrabold text-3xl sm:text-4xl md:text-6xl text-primary tracking-tight">Naisargik</span>
@@ -246,6 +249,7 @@
             </div>
         </div>
 
+        <!-- Mobile Search -->
         <div class="md:hidden px-4 pb-5">
             <div class="relative w-full group">
                 <input type="text" id="mobile-search" oninput="window.handleSearch(this.value)" placeholder="পছন্দের পণ্য খুঁজুন..." class="w-full pl-4 pr-10 py-3.5 bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50 focus:bg-white transition-all text-sm shadow-inner">
@@ -282,24 +286,27 @@
         </div>
     </section>
 
-    <!-- FEATURED CATEGORIES SECTION -->
+    <!-- FEATURED CATEGORIES SECTION (Auto-Scrolling Circular Categories) -->
     <section class="w-full max-w-7xl mx-auto mt-6 md:mt-10 mb-2 px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between mb-3">
             <h3 class="text-xl md:text-3xl font-extrabold text-gray-900">জনপ্রিয় <span class="text-primary">ক্যাটাগরি</span></h3>
         </div>
         
+        <!-- Category Container with single line nowrap and auto scroll -->
         <div class="relative overflow-hidden group">
+            <!-- Left fade -->
             <div class="absolute top-0 left-0 bottom-0 w-8 md:w-12 bg-gradient-to-r from-[#fafafa] to-transparent z-10 pointer-events-none"></div>
             
             <div id="featured-cats" class="flex gap-4 sm:gap-6 md:gap-10 overflow-x-auto scrollbar-hide py-2 flex-nowrap items-start cursor-pointer">
                 <!-- Dynamically Rendered Circular Categories -->
             </div>
             
+            <!-- Right fade -->
             <div class="absolute top-0 right-0 bottom-0 w-8 md:w-12 bg-gradient-to-l from-[#fafafa] to-transparent z-10 pointer-events-none"></div>
         </div>
     </section>
 
-    <!-- PRODUCT CATALOG SECTION -->
+    <!-- PRODUCT CATALOG SECTION (Premium Space Optimized with Mobile Mini-Filter Row) -->
     <section id="products-section" class="pt-8 pb-16 md:pt-12 md:pb-24 bg-emerald-50/30 flex-1 border-t border-emerald-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
@@ -309,9 +316,13 @@
                 <p data-editable="true" data-field="collectionSubtitle" class="text-gray-600 max-w-md mx-auto text-sm md:text-base font-medium" id="product-section-subtitle">খাঁটি এবং প্রাকৃতিক খাবারের সেরা কালেকশন থেকে আপনার পছন্দের পণ্যটি বেছে নিন</p>
             </div>
 
+            <!-- Layout Wrapper: Flex container for Content -->
             <div class="flex flex-col lg:flex-row gap-6 md:gap-8 items-start w-full">
+
+                <!-- Products Grid & Sort Bar - Smart & Clear Design -->
                 <div class="flex-1 w-full min-w-0 flex flex-col gap-4">
                     
+                    <!-- Sort Bar (Matching Attached Image) -->
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-3 sm:pb-4 border-b border-gray-200/60 w-full">
                         <div class="text-sm text-gray-500 flex flex-wrap items-center" id="search-result-text">
                             <span id="product-count" class="font-bold text-gray-800">0</span> items found
@@ -336,6 +347,7 @@
                         <!-- Dynamically loaded -->
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -374,25 +386,16 @@
     <div id="product-details-modal" class="fixed inset-0 z-[90] hidden flex items-center justify-center p-4 md:p-6 pointer-events-none">
         <div class="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto overflow-x-hidden transform scale-95 transition-all duration-300 pointer-events-auto relative flex flex-col md:flex-row">
             
-            <button onclick="window.closeProductModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-red-100 text-gray-600 hover:text-red-500 rounded-full flex items-center justify-center transition-colors z-30">
+            <!-- Close Button -->
+            <button onclick="window.closeProductModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-red-100 text-gray-600 hover:text-red-500 rounded-full flex items-center justify-center transition-colors z-20">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
 
-            <!-- Image Section with Gallery Setup -->
+            <!-- Image Section (Updated Multiple Images & 1:1 Aspect Ratio) -->
             <div class="w-full md:w-1/2 bg-[#f8fafc] flex flex-col gap-3 p-6 md:p-8 border-b md:border-b-0 md:border-r border-gray-100">
-                <!-- Main Image Container -->
                 <div class="w-full aspect-square relative rounded-2xl overflow-hidden shadow-sm bg-white border border-gray-100 flex items-center justify-center group">
                     <img id="modal-main-img" src="" alt="Product" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    
-                    <!-- Slider Arrows (Visible if multiple images) -->
-                    <button onclick="window.prevModalImage(event)" id="modal-img-prev" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md hidden z-10 text-gray-800 transition-all opacity-0 group-hover:opacity-100">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button onclick="window.nextModalImage(event)" id="modal-img-next" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-md hidden z-10 text-gray-800 transition-all opacity-0 group-hover:opacity-100">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
                 </div>
-
                 <!-- Thumbnails Container -->
                 <div id="modal-thumbnails" class="flex gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-hide hidden">
                     <!-- Dynamically loaded thumbnails -->
@@ -409,6 +412,7 @@
                     <span id="modal-product-regular-price" class="text-lg text-gray-400 line-through font-medium hidden">৳ 0</span>
                 </div>
 
+                <!-- Variants Container -->
                 <div id="modal-variants-container" class="hidden mb-6">
                     <label class="block text-sm font-bold text-gray-700 mb-2">পরিমাণ নির্বাচন করুন:</label>
                     <div id="modal-variants-options" class="flex flex-wrap gap-2">
@@ -416,8 +420,9 @@
                     </div>
                 </div>
 
+                <!-- Rich Text Description Support Container -->
                 <div id="modal-product-desc" class="rich-text text-sm md:text-base text-gray-600 mb-8 font-medium leading-relaxed">
-                    <!-- বিবরণ এখানে রেন্ডার হবে -->
+                    <!-- বিবরণ এখানে রেন্ডার হবে (innerHTML দিয়ে) -->
                 </div>
 
                 <div class="mt-auto pb-4">
@@ -456,10 +461,14 @@
                 </a>
                 <p data-editable="true" data-field="footerAbout" id="public-footer-about" class="text-sm leading-relaxed font-medium text-gray-400 max-w-sm">প্রকৃতির খাঁটি স্বাদ, পৌঁছে যাবে আপনার দুয়ারে। সেরা মানের পণ্য দিয়ে আপনাদের সেবা করাই আমাদের মূল লক্ষ্য।</p>
                 
+                <!-- Dynamic Social Links -->
                 <div class="relative">
                     <div id="social-links-container" class="flex flex-wrap gap-4 items-center">
                         <!-- Rendered dynamically -->
                     </div>
+                    <button onclick="window.addSocialLink()" class="admin-controls mt-3 text-xs bg-white/10 hover:bg-primary text-white py-1 px-3 rounded inline-flex items-center gap-1 transition-colors">
+                        <i class="fa-solid fa-plus"></i> সোস্যাল লিংক যোগ করুন
+                    </button>
                 </div>
             </div>
 
@@ -477,11 +486,15 @@
                 </ul>
             </div>
 
+            <!-- Dynamic Useful Links -->
             <div>
                 <h4 class="text-lg font-bold text-white mb-6 flex items-center gap-2"><i class="fa-solid fa-handshake text-primary"></i> প্রয়োজনীয় লিংক</h4>
                 <ul id="useful-links-container" class="space-y-3 text-sm font-medium">
                     <!-- Rendered dynamically -->
                 </ul>
+                <button onclick="window.addUsefulLink()" class="admin-controls mt-4 text-xs bg-white/10 hover:bg-primary text-white py-1.5 px-3 rounded flex items-center gap-1 transition-colors">
+                    <i class="fa-solid fa-plus"></i> নতুন লিংক যোগ করুন
+                </button>
             </div>
         </div>
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 text-center text-sm text-gray-500 font-medium">
@@ -513,7 +526,7 @@
         </div>
     </div>
 
-    <!-- Alert Modal -->
+    <!-- Alert Modal (z-index updated to 9998/9999 for top visibility) -->
     <div id="public-alert-modal-overlay" class="fixed inset-0 bg-black/60 z-[9998] hidden transition-opacity duration-300 opacity-0 backdrop-blur-sm" onclick="window.closeAlertModal()"></div>
     <div id="public-alert-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-4 pointer-events-none">
         <div id="public-alert-modal-content" class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col transform scale-95 transition-all duration-300 pointer-events-auto p-8 text-center">
@@ -553,7 +566,7 @@
         let allProducts = [];
         let activeCategory = 'all';
         let searchQuery = '';
-        let cart = JSON.parse(localStorage.getItem('userCart') || '[]');
+        let cart = [];
         let isAdmin = false;
         let currentSlide = 0;
         let slideInterval;
@@ -561,9 +574,8 @@
         let catScrollInterval;
         let currentModalProduct = null;
         let selectedVariant = null;
-        let currentModalImages = []; // Array to store multiple images for gallery
-        let currentImageIndex = 0;   // Current image index for gallery
 
+        // Default Homepage Data
         let homepageData = {
             sliderImages: [],
             featuredCategories: [],
@@ -579,6 +591,7 @@
             ]
         };
 
+        // Custom Confirm Box logic replacing window.confirm
         window.showConfirm = function(msg, callbackYes) {
             const modal = document.getElementById('custom-confirm-modal');
             document.getElementById('confirm-msg').innerText = msg;
@@ -641,6 +654,7 @@
                         footerLogoInitial.classList.add('hidden'); footerBrandText.classList.add('hidden');
                     }
 
+                    // Handle Short Logo (Favicon & Loader Animation)
                     if (data.shortLogoUrl) {
                         const favicon = document.getElementById('dynamic-favicon');
                         if (favicon) favicon.href = data.shortLogoUrl;
@@ -663,6 +677,7 @@
             onSnapshot(doc(db, "settings", "homepage"), (snapshot) => {
                 if (snapshot.exists()) {
                     const data = snapshot.data();
+                    // Merge array fields securely
                     if(data.sliderImages) homepageData.sliderImages = data.sliderImages;
                     if(data.featuredCategories) homepageData.featuredCategories = data.featuredCategories;
                     if(data.usefulLinks) homepageData.usefulLinks = data.usefulLinks;
@@ -685,6 +700,7 @@
                 snapshot.forEach(docSnap => {
                     allProducts.push({ id: docSnap.id, ...docSnap.data() });
                 });
+                renderCategoryNav();
                 renderPublicProducts();
                 
                 if (isFirstLoad) {
@@ -694,10 +710,10 @@
                         window.openCart(true);
                     } else if (hash.startsWith('#product-')) {
                         const id = hash.replace('#product-', '');
-                        window.openProductModal(id);
+                        window.openProductModal(id, true);
                     } else if (hash.startsWith('#category-')) {
                         const cat = decodeURIComponent(hash.replace('#category-', ''));
-                        window.filterCategory(cat);
+                        window.filterCategory(cat, true);
                     }
                 }
             });
@@ -730,10 +746,10 @@
                 renderSlider();
                 renderFeaturedCategories();
                 renderFooterLinks();
-                updateCartCount();
             });
         }
 
+        // Authentication Handlers
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('login-email').value.trim();
@@ -752,6 +768,9 @@
                 document.getElementById('auth-overlay').classList.add('hidden');
                 document.body.style.overflow = '';
                 disableTextEditing();
+                renderSlider();
+                renderFeaturedCategories();
+                renderFooterLinks();
                 
                 window.showNotification("গেস্ট হিসেবে লগইন হয়েছে!");
                 btn.innerHTML = `<i class="fa-solid fa-right-to-bracket"></i> লগইন করুন`;
@@ -764,6 +783,7 @@
             else window.location.reload();
         };
 
+        // Inline Text Editing
         function enableTextEditing() {
             document.querySelectorAll('[data-editable="true"]').forEach(el => {
                 el.setAttribute('contenteditable', 'true');
@@ -788,6 +808,7 @@
             });
         }
 
+        // Image Upload Handlers
         const fileInput = document.getElementById('global-file-upload');
         window.triggerUpload = (action) => {
             if(!isAdmin) return;
@@ -835,9 +856,20 @@
                         showNotification("ক্যাটাগরি ছবি আপডেট হয়েছে!");
                     }
                 }
+                else if(currentUploadAction.type === 'new-category') {
+                    const newCat = {
+                        id: Date.now().toString(),
+                        name: 'নতুন ক্যাটাগরি',
+                        image: url
+                    };
+                    homepageData.featuredCategories.push(newCat);
+                    await setDoc(doc(db, "settings", "homepage"), { featuredCategories: homepageData.featuredCategories }, { merge: true });
+                    showNotification("নতুন ক্যাটাগরি যুক্ত হয়েছে!");
+                }
             } catch(e) { showNotification("সংরক্ষণে সমস্যা হয়েছে!", true); }
         }
 
+        // Hero Slider Logic
         function renderSlider() {
             const track = document.getElementById('slider-track');
             const dotsContainer = document.getElementById('slider-dots');
@@ -890,16 +922,20 @@
         }
         function startSlideTimer() { slideInterval = setInterval(window.nextSlide, 5000); }
 
+
+        // Circular Categories Auto-Scroll Logic
         function renderFeaturedCategories() {
             const container = document.getElementById('featured-cats');
             container.innerHTML = '';
+            stopCategoryScroll(); // Reset scroll
 
+            // Add 'All Products' category first
             container.innerHTML += `
                 <div class="shrink-0 w-16 sm:w-20 md:w-28 group text-center relative px-1 sm:px-2 cursor-pointer" onclick="window.filterCategory('all'); document.getElementById('desktop-search').value=''; document.getElementById('mobile-search').value='';">
                     <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto bg-emerald-50 rounded-full flex items-center justify-center mb-2 md:mb-3 shadow-sm border-[1.5px] md:border-2 border-emerald-100 group-hover:bg-primary group-hover:border-primary group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 overflow-hidden">
                         <i class="fa-solid fa-border-all text-2xl md:text-3xl text-emerald-600 group-hover:text-white transition-colors"></i>
                     </div>
-                    <h4 class="font-bold ${activeCategory === 'all' ? 'text-primary' : 'text-gray-700'} text-[10px] sm:text-xs md:text-sm group-hover:text-primary transition-colors whitespace-normal leading-tight">সকল পণ্য</h4>
+                    <h4 class="font-bold text-gray-700 text-[10px] sm:text-xs md:text-sm group-hover:text-primary transition-colors whitespace-normal leading-tight">সকল পণ্য</h4>
                 </div>
             `;
 
@@ -913,480 +949,614 @@
                     }
 
                     container.innerHTML += `
-                        <div class="shrink-0 w-16 sm:w-20 md:w-28 group text-center relative px-1 sm:px-2 cursor-pointer" onclick="window.filterCategory('${cat.name}')">
+                        <div class="shrink-0 w-16 sm:w-20 md:w-28 group text-center relative px-1 sm:px-2">
                             <div class="absolute inset-x-0 top-0 h-16 sm:h-20 md:h-24 bg-black/60 rounded-full hidden admin-controls items-center justify-center gap-2 z-30 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <button onclick="event.stopPropagation(); window.triggerUpload({type:'category', id:'${cat.id}'})" class="text-white hover:text-primary"><i class="fa-solid fa-upload"></i></button>
-                                <button onclick="event.stopPropagation(); window.deleteCategory('${cat.id}')" class="text-white hover:text-red-500"><i class="fa-solid fa-trash"></i></button>
+                                <button onclick="window.triggerUpload({type: 'category', id: '${cat.id}'})" class="text-white hover:text-emerald-400 text-xs md:text-sm"><i class="fa-solid fa-camera"></i></button>
+                                <button onclick="window.confirmDeleteCategory('${cat.id}')" class="text-white hover:text-red-400 text-xs md:text-sm"><i class="fa-solid fa-trash"></i></button>
                             </div>
-                            <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto bg-white rounded-full flex items-center justify-center mb-2 md:mb-3 shadow-sm border-[1.5px] md:border-2 ${activeCategory === cat.name ? 'border-primary shadow-lg scale-105' : 'border-gray-200'} group-hover:border-primary group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 overflow-hidden">
+                            <div onclick="!isAdmin && window.filterCategory('${cat.name}')" class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto bg-emerald-50 rounded-full flex items-center justify-center mb-2 md:mb-3 shadow-sm border-[1.5px] md:border-2 border-emerald-100 group-hover:bg-primary group-hover:border-primary group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105 cursor-pointer relative overflow-hidden">
                                 ${imgHtml}
                             </div>
-                            <h4 class="font-bold ${activeCategory === cat.name ? 'text-primary' : 'text-gray-700'} text-[10px] sm:text-xs md:text-sm group-hover:text-primary transition-colors whitespace-normal leading-tight">${cat.name}</h4>
+                            <h4 data-catname="${cat.id}" ${isAdmin ? 'contenteditable="true"' : ''} onblur="window.updateCatName('${cat.id}', this.innerText)" class="font-bold text-gray-700 text-[10px] sm:text-xs md:text-sm group-hover:text-primary transition-colors whitespace-normal leading-tight">${cat.name}</h4>
                         </div>
                     `;
                 });
             }
+
+            if(isAdmin) {
+                container.innerHTML += `
+                    <div class="shrink-0 w-16 sm:w-20 md:w-28 text-center cursor-pointer admin-controls flex-col px-1 sm:px-2" onclick="window.triggerUpload({type: 'new-category'})">
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto bg-gray-50 border-2 border-dashed border-gray-300 rounded-full flex items-center justify-center mb-2 md:mb-3 hover:border-primary hover:text-primary transition-colors text-gray-400">
+                            <i class="fa-solid fa-plus text-xl md:text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-500 text-[10px] sm:text-xs md:text-sm">নতুন যুক্ত করুন</h4>
+                    </div>
+                `;
+            }
+
+            // Start Auto Scroll Marquee
+            setTimeout(startCategoryScroll, 500);
         }
 
-        window.deleteCategory = async (id) => {
-            if(!isAdmin) return;
-            window.showConfirm("ক্যাটাগরিটি মুছে ফেলতে চান?", async () => {
+        function startCategoryScroll() {
+            const container = document.getElementById('featured-cats');
+            if(!container || container.scrollWidth <= container.clientWidth) return;
+            
+            catScrollInterval = setInterval(() => {
+                if(container.matches(':hover') || isAdmin) return; 
+                container.scrollLeft += 1;
+                if(container.scrollLeft >= (container.scrollWidth - container.clientWidth - 1)) {
+                    container.scrollLeft = 0;
+                }
+            }, 30);
+        }
+        function stopCategoryScroll() { clearInterval(catScrollInterval); }
+
+        window.updateCatName = async (id, newName) => {
+            if(!isAdmin || !auth.currentUser) return;
+            const cat = homepageData.featuredCategories.find(c => c.id === id);
+            if(cat && cat.name !== newName) {
+                cat.name = newName.trim();
+                try {
+                    await setDoc(doc(db, "settings", "homepage"), { featuredCategories: homepageData.featuredCategories }, { merge: true });
+                    showNotification("ক্যাটাগরি নাম সেভ হয়েছে!");
+                } catch(e) { showNotification("সমস্যা হয়েছে!", true); }
+            }
+        };
+
+        window.confirmDeleteCategory = (id) => {
+            if(!isAdmin || !auth.currentUser) return;
+            window.showConfirm("এই ক্যাটাগরিটি মুছে ফেলতে চান?", async () => {
                 homepageData.featuredCategories = homepageData.featuredCategories.filter(c => c.id !== id);
-                await setDoc(doc(db, "settings", "homepage"), { featuredCategories: homepageData.featuredCategories }, { merge: true });
-                showNotification("ক্যাটাগরি মুছে ফেলা হয়েছে!");
+                try {
+                    await setDoc(doc(db, "settings", "homepage"), { featuredCategories: homepageData.featuredCategories }, { merge: true });
+                    showNotification("ক্যাটাগরি মোছা হয়েছে!");
+                } catch(e) { showNotification("সমস্যা হয়েছে!", true); }
             });
         };
 
-        window.filterCategory = (cat) => {
-            activeCategory = cat;
-            window.location.hash = cat === 'all' ? '' : `#category-${cat}`;
-            renderFeaturedCategories();
+        // Products, Advanced Filter and Search
+        window.handleSearch = function(query) {
+            searchQuery = query.toLowerCase();
+            document.getElementById('desktop-search').value = query;
+            document.getElementById('mobile-search').value = query;
             renderPublicProducts();
-        };
+        }
 
-        window.handleSearch = (val) => {
-            searchQuery = val.toLowerCase();
+        window.applyFilters = function() {
+            // Get values from dropdowns safely
+            const catEl = document.getElementById('filter-category');
+            if(catEl) activeCategory = catEl.value;
             renderPublicProducts();
-        };
+        }
 
-        window.applyFilters = () => {
-            renderPublicProducts();
-        };
-
+        // Updated Premium Card Design (Perfect Aspect-Ratio Image fitting & No Gaps)
         function renderPublicProducts() {
             const container = document.getElementById('public-products-container');
-            const sortVal = document.getElementById('filter-sort').value;
-            container.innerHTML = '';
+            const subtitle = document.getElementById('product-section-subtitle');
+            if(!container) return;
 
-            let filtered = allProducts.filter(p => {
-                const matchCat = activeCategory === 'all' || p.category === activeCategory;
-                const matchSearch = p.name.toLowerCase().includes(searchQuery);
-                return matchCat && matchSearch && p.status !== 'inactive';
-            });
+            // Get advanced filters (safely checked if element exists)
+            const filterPriceVal = document.getElementById('filter-price')?.value || 'all';
+            const filterSortVal = document.getElementById('filter-sort')?.value || 'default';
 
-            if (sortVal === 'price-asc') filtered.sort((a, b) => Number(a.price) - Number(b.price));
-            else if (sortVal === 'price-desc') filtered.sort((a, b) => Number(b.price) - Number(a.price));
+            // 1. Category Filtering
+            let filtered = activeCategory === 'all' ? allProducts : allProducts.filter(p => p.category === activeCategory);
 
-            document.getElementById('product-count').innerText = filtered.length;
+            // 2. Price Range Filtering
+            if (filterPriceVal === 'under-500') {
+                filtered = filtered.filter(p => Number(p.price) < 500);
+            } else if (filterPriceVal === '500-1000') {
+                filtered = filtered.filter(p => Number(p.price) >= 500 && Number(p.price) <= 1000);
+            } else if (filterPriceVal === 'over-1000') {
+                filtered = filtered.filter(p => Number(p.price) > 1000);
+            }
+
+            // 3. Search Query Filtering
+            if (searchQuery) {
+                filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery) || (p.category && p.category.toLowerCase().includes(searchQuery)));
+                subtitle.innerHTML = `"${searchQuery}" এর জন্য অনুসন্ধান ফলাফল`;
+            } else if(!isAdmin) {
+                subtitle.innerText = homepageData.collectionSubtitle || "খাঁটি এবং প্রাকৃতিক খাবারের সেরা কালেকশন থেকে আপনার পছন্দের পণ্যটি বেছে নিন";
+            }
+
+            // Update Product Count & Search Text matching the image
+            const resultText = document.getElementById('search-result-text');
+            if (resultText) {
+                // "সকল পণ্য" Button Html when active filters are present
+                let clearBtnHtml = (searchQuery || activeCategory !== 'all') 
+                    ? `<button onclick="window.filterCategory('all'); document.getElementById('desktop-search').value=''; document.getElementById('mobile-search').value='';" class="ml-2 inline-flex items-center gap-1.5 px-3 py-1 bg-primary text-white hover:bg-primaryHover rounded-full text-[10px] sm:text-xs font-bold transition-colors cursor-pointer shadow-sm"><i class="fa-solid fa-border-all"></i> সকল পণ্য</button>` 
+                    : '';
+
+                if (searchQuery) {
+                    resultText.innerHTML = `<span class="font-bold text-gray-800">${filtered.length}</span> items found for <span class="text-gray-800 font-medium">"${searchQuery}"</span> ${clearBtnHtml}`;
+                } else {
+                    let catText = activeCategory === 'all' ? 'All products' : activeCategory;
+                    resultText.innerHTML = `<span class="font-bold text-gray-800">${filtered.length}</span> items found for <span class="text-gray-800 font-medium">"${catText}"</span> ${clearBtnHtml}`;
+                }
+            }
+
+            // 4. Sorting Logic
+            if (filterSortVal === 'name-asc') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name, 'bn'));
+            } else if (filterSortVal === 'price-asc') {
+                filtered.sort((a, b) => Number(a.price) - Number(b.price));
+            } else if (filterSortVal === 'price-desc') {
+                filtered.sort((a, b) => Number(b.price) - Number(a.price));
+            }
 
             if (filtered.length === 0) {
-                container.innerHTML = `<div class="col-span-full py-16 text-center text-gray-500 font-medium"><div class="text-4xl mb-4 text-gray-300"><i class="fa-solid fa-box-open"></i></div>দুঃখিত, কোনো পণ্য পাওয়া যায়নি।</div>`;
+                container.innerHTML = `<div class="col-span-full text-center py-16 text-gray-500 font-medium bg-white rounded-3xl border border-dashed border-gray-200"><i class="fa-solid fa-box-open text-5xl text-emerald-100 mb-4 block"></i>কোনো পণ্য পাওয়া যায়নি।</div>`;
                 return;
             }
 
-            filtered.forEach(p => {
-                // Ensure multiple images are handled in the card too
-                const prodImg = (p.imageUrls && p.imageUrls.length > 0) ? p.imageUrls[0] : (p.imageUrl || 'https://placehold.co/400x400/e2e8f0/475569?text=No+Image');
+            container.innerHTML = filtered.map(product => {
+                const imgUrl = (product.imageUrls && product.imageUrls.length > 0) ? product.imageUrls[0] : (product.imageUrl || "https://placehold.co/400x400/e2e8f0/64748b?text=Product");
+                const isOutOfStock = product.stockStatus === 'Out of Stock';
                 
-                const card = document.createElement('div');
-                card.className = "product-card bg-white rounded-2xl overflow-hidden flex flex-col group border border-gray-100 cursor-pointer";
-                card.onclick = () => window.openProductModal(p.id);
-                card.innerHTML = `
-                    <div class="relative w-full aspect-square overflow-hidden bg-gray-50 p-2">
-                        <img src="${prodImg}" alt="${p.name}" class="w-full h-full object-cover rounded-xl transition-transform duration-700 group-hover:scale-110">
-                        ${p.regularPrice && p.regularPrice > p.price ? `<div class="absolute top-4 left-4 bg-red-500 text-white text-[10px] font-black px-2 py-1 rounded-md shadow-sm uppercase tracking-wide animate-pulse">Save ৳${p.regularPrice - p.price}</div>` : ''}
-                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                            <i class="fa-solid fa-cart-plus"></i>
+                return `
+                    <div onclick="window.openProductModal('${product.id}')" class="product-card bg-white rounded-2xl overflow-hidden flex flex-col relative group cursor-pointer border border-gray-100/80 ${isOutOfStock ? 'opacity-80' : ''}">
+                        ${isOutOfStock ? `<div class="absolute top-2 md:top-3 left-2 md:left-3 bg-red-600/90 backdrop-blur text-white text-[9px] md:text-[10px] font-black px-2 py-1 md:px-3 md:py-1.5 rounded-full z-10 shadow-sm uppercase">স্টক শেষ</div>` : ''}
+                        
+                        <!-- Premium Aspect Ratio 1:1 Image Section with Hover Zoom -->
+                        <div class="relative aspect-square w-full bg-[#f8fafc] group-hover:bg-[#f1f5f9] transition-colors flex items-center justify-center overflow-hidden">
+                            <img src="${imgUrl}" alt="${product.name}" class="product-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x400/e2e8f0/64748b?text=Product'">
+                            <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
-                    </div>
-                    <div class="p-4 md:p-5 flex flex-col flex-1">
-                        <span class="text-[10px] md:text-xs font-bold text-gray-400 uppercase tracking-wider mb-1 block">${p.category}</span>
-                        <h3 class="text-sm md:text-base font-bold text-gray-800 leading-tight mb-2 line-clamp-2 group-hover:text-primary transition-colors">${p.name}</h3>
-                        <div class="mt-auto flex items-center gap-2">
-                            <span class="text-base md:text-xl font-black text-primary">৳ ${p.price}</span>
-                            ${p.regularPrice && p.regularPrice > p.price ? `<span class="text-xs md:text-sm text-gray-400 line-through font-semibold">৳ ${p.regularPrice}</span>` : ''}
+
+                        <!-- Content Section -->
+                        <div class="p-3.5 sm:p-4 md:p-5 flex-1 flex flex-col bg-white">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="text-[9px] md:text-[10px] font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded uppercase tracking-widest">${product.category || 'অর্গানিক'}</span>
+                            </div>
+                            
+                            <h3 class="text-xs sm:text-sm md:text-base font-bold text-gray-800 line-clamp-2 leading-relaxed mb-1.5 group-hover:text-primary transition-colors">${product.name}</h3>
+                            
+                            <div class="mt-auto pt-3 flex flex-col gap-3" onclick="event.stopPropagation()">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-base sm:text-lg md:text-xl font-black text-gray-900">৳ ${product.variants && product.variants.length > 0 ? product.variants[0].price : product.price}</span>
+                                    ${!product.variants && product.regularPrice ? `<span class="text-[10px] sm:text-xs text-gray-400 line-through font-medium">৳ ${product.regularPrice}</span>` : ''}
+                                </div>
+                                <button onclick="${product.variants && product.variants.length > 0 ? `window.openProductModal('${product.id}')` : `window.addProductToCart('${product.id}')`}" 
+                                    class="w-full ${isOutOfStock ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'bg-emerald-50 hover:bg-primary text-primary hover:text-white'} font-bold py-2 md:py-2.5 rounded-xl transition-all text-xs md:text-sm flex justify-center items-center gap-2 group/btn"
+                                    ${isOutOfStock ? 'disabled' : ''}>
+                                    <i class="fa-solid ${product.variants && product.variants.length > 0 ? 'fa-eye' : 'fa-basket-shopping'} ${isOutOfStock ? '' : 'group-hover/btn:-translate-y-0.5 transition-transform'}"></i> <span>${isOutOfStock ? 'স্টক শেষ' : (product.variants && product.variants.length > 0 ? 'অপশন দেখুন' : 'কার্টে যোগ করুন')}</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 `;
-                container.appendChild(card);
-            });
+            }).join('');
         }
 
-        window.openProductModal = (id) => {
+        // Functions for multi-image gallery interaction
+        window.setModalMainImage = function(url, activeIdx) {
+            document.getElementById('modal-main-img').src = url;
+            const buttons = document.querySelectorAll('.thumb-btn');
+            buttons.forEach((btn, idx) => {
+                if(idx === activeIdx) {
+                    btn.classList.add('border-primary', 'shadow-md');
+                    btn.classList.remove('border-transparent', 'hover:border-emerald-200');
+                } else {
+                    btn.classList.remove('border-primary', 'shadow-md');
+                    btn.classList.add('border-transparent', 'hover:border-emerald-200');
+                }
+            });
+        };
+
+        // Product Details Modal
+        window.openProductModal = (id, skipHistory = false) => {
             const product = allProducts.find(p => p.id === id);
-            if (!product) return;
+            if(!product) return;
+            
             currentModalProduct = product;
             selectedVariant = null;
 
-            // Setup Modal Images for Gallery
-            currentModalImages = [];
-            if (product.imageUrls && Array.isArray(product.imageUrls) && product.imageUrls.length > 0) {
-                currentModalImages = product.imageUrls;
-            } else if (product.imageUrl) {
-                currentModalImages = [product.imageUrl];
-            } else {
-                currentModalImages = ['https://placehold.co/600x600/e2e8f0/475569?text=No+Image'];
-            }
-            currentImageIndex = 0;
-            updateModalGalleryUI();
-
-            document.getElementById('modal-product-category').innerText = product.category;
-            document.getElementById('modal-product-title').innerText = product.name;
-            document.getElementById('modal-product-price').innerText = `৳ ${product.price}`;
+            // Handle Multiple Images
+            const images = (product.imageUrls && product.imageUrls.length > 0) ? product.imageUrls : [product.imageUrl || "https://placehold.co/400x400/e2e8f0/64748b?text=Product"];
             
-            const regPrice = document.getElementById('modal-product-regular-price');
-            if(product.regularPrice && product.regularPrice > product.price) {
-                regPrice.innerText = `৳ ${product.regularPrice}`;
-                regPrice.classList.remove('hidden');
-            } else { regPrice.classList.add('hidden'); }
-
-            const vContainer = document.getElementById('modal-variants-container');
-            const vOptions = document.getElementById('modal-variants-options');
-            if(product.variants && product.variants.length > 0) {
-                vContainer.classList.remove('hidden');
-                vOptions.innerHTML = product.variants.map((v, i) => `
-                    <button onclick="window.selectVariant(${i})" id="variant-btn-${i}" class="px-4 py-2 border-2 border-gray-200 rounded-lg text-sm font-bold text-gray-600 hover:border-primary hover:text-primary transition-colors ${i===0?'border-primary text-primary bg-emerald-50':''}">${v.name}</button>
-                `).join('');
-                window.selectVariant(0);
-            } else {
-                vContainer.classList.add('hidden');
-            }
-
-            document.getElementById('modal-product-desc').innerHTML = product.description || '<p>কোনো বিবরণ দেওয়া নেই।</p>';
+            // Set Main Image
+            document.getElementById('modal-main-img').src = images[0];
             
-            const addBtn = document.getElementById('modal-add-to-cart-btn');
-            addBtn.onclick = () => window.addToCart(product);
-
-            document.getElementById('product-details-overlay').classList.remove('hidden');
-            document.getElementById('product-details-modal').classList.remove('hidden');
-            setTimeout(() => {
-                document.getElementById('product-details-overlay').classList.remove('opacity-0');
-                document.getElementById('product-details-modal').firstElementChild.classList.remove('scale-95');
-                document.getElementById('product-details-modal').firstElementChild.classList.add('scale-100');
-            }, 10);
-            
-            window.location.hash = `product-${id}`;
-        };
-
-        // UI update function for Gallery
-        function updateModalGalleryUI() {
-            const mainImg = document.getElementById('modal-main-img');
-            mainImg.src = currentModalImages[currentImageIndex];
-
-            const prevBtn = document.getElementById('modal-img-prev');
-            const nextBtn = document.getElementById('modal-img-next');
+            // Generate Thumbnails
             const thumbContainer = document.getElementById('modal-thumbnails');
-
-            if (currentModalImages.length > 1) {
-                prevBtn.classList.remove('hidden');
-                nextBtn.classList.remove('hidden');
-                thumbContainer.classList.remove('hidden');
-
-                thumbContainer.innerHTML = currentModalImages.map((img, idx) => `
-                    <div onclick="window.setModalImage(${idx})" class="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-xl border-2 cursor-pointer overflow-hidden transition-all duration-200 ${idx === currentImageIndex ? 'border-primary shadow-md opacity-100' : 'border-transparent opacity-50 hover:opacity-100'}">
+            if (images.length > 1) {
+                thumbContainer.innerHTML = images.map((img, idx) => `
+                    <button onclick="window.setModalMainImage('${img}', ${idx})" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-xl overflow-hidden border-2 transition-all ${idx === 0 ? 'border-primary shadow-md' : 'border-transparent hover:border-emerald-200'} thumb-btn">
                         <img src="${img}" class="w-full h-full object-cover">
-                    </div>
+                    </button>
                 `).join('');
-                
-                // Keep active thumbnail in view
-                const activeThumb = thumbContainer.children[currentImageIndex];
-                if(activeThumb) activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-
+                thumbContainer.classList.remove('hidden');
             } else {
-                prevBtn.classList.add('hidden');
-                nextBtn.classList.add('hidden');
                 thumbContainer.classList.add('hidden');
                 thumbContainer.innerHTML = '';
             }
-        }
 
-        window.setModalImage = (idx) => {
-            currentImageIndex = idx;
-            updateModalGalleryUI();
+            document.getElementById('modal-product-title').innerText = product.name;
+            document.getElementById('modal-product-category').innerText = product.category || 'অর্গানিক';
+            
+            const priceEl = document.getElementById('modal-product-price');
+            const regPriceEl = document.getElementById('modal-product-regular-price');
+            const variantsContainer = document.getElementById('modal-variants-container');
+            const variantsOptions = document.getElementById('modal-variants-options');
+
+            // Handle Variants (Weight-based pricing)
+            if (product.variants && product.variants.length > 0) {
+                variantsContainer.classList.remove('hidden');
+                selectedVariant = product.variants[0]; // Default to first variant
+                
+                variantsOptions.innerHTML = product.variants.map((v, idx) => `
+                    <label class="cursor-pointer">
+                        <input type="radio" name="product_variant" value="${idx}" class="peer sr-only" ${idx === 0 ? 'checked' : ''} onchange="window.selectVariant(${idx})">
+                        <div class="px-4 py-2 rounded-xl border-2 border-gray-200 peer-checked:border-primary peer-checked:bg-emerald-50 peer-checked:text-primary text-gray-600 font-bold text-sm transition-all hover:bg-gray-50">
+                            ${v.weight}
+                        </div>
+                    </label>
+                `).join('');
+                
+                priceEl.innerText = `৳ ${selectedVariant.price}`;
+                regPriceEl.classList.add('hidden');
+            } else {
+                variantsContainer.classList.add('hidden');
+                priceEl.innerText = `৳ ${product.price}`;
+                if(product.regularPrice) {
+                    regPriceEl.innerText = `৳ ${product.regularPrice}`;
+                    regPriceEl.classList.remove('hidden');
+                } else {
+                    regPriceEl.classList.add('hidden');
+                }
+            }
+
+            document.getElementById('modal-product-desc').innerHTML = product.description || "এই পণ্যের কোন বিস্তারিত বিবরণ দেওয়া হয়নি। সম্পূর্ণ খাঁটি এবং প্রাকৃতিক উপাদান দিয়ে তৈরি, আপনার পরিবারের সুস্বাস্থ্যের জন্য নির্ভরযোগ্য একটি পণ্য।";
+
+            const btn = document.getElementById('modal-add-to-cart-btn');
+            if(product.stockStatus === 'Out of Stock') {
+                btn.innerHTML = `<i class="fa-solid fa-ban"></i> স্টক শেষ`;
+                btn.className = "w-full bg-gray-200 text-gray-500 font-bold py-4 rounded-xl cursor-not-allowed flex justify-center items-center gap-3 text-lg";
+                btn.onclick = null;
+            } else {
+                btn.innerHTML = `<i class="fa-solid fa-basket-shopping"></i> কার্টে যোগ করুন`;
+                btn.className = "w-full bg-primary hover:bg-primaryHover text-white font-bold py-4 rounded-xl shadow-xl shadow-emerald-600/20 transition-transform transform hover:scale-[1.02] flex justify-center items-center gap-3 text-lg";
+                btn.onclick = () => { window.addModalProductToCart(); window.closeProductModal(); };
+            }
+
+            const modal = document.getElementById('product-details-modal');
+            const overlay = document.getElementById('product-details-overlay');
+            overlay.classList.remove('hidden');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0'); overlay.classList.add('opacity-100');
+                modal.firstElementChild.classList.remove('scale-95'); modal.firstElementChild.classList.add('scale-100');
+            }, 10);
+            
+            if (skipHistory !== true) {
+                window.history.pushState(null, '', `#product-${id}`);
+            }
         };
 
-        window.prevModalImage = (e) => {
-            if(e) e.stopPropagation();
-            if(currentModalImages.length <= 1) return;
-            currentImageIndex = (currentImageIndex - 1 + currentModalImages.length) % currentModalImages.length;
-            updateModalGalleryUI();
+        window.closeProductModalUI = () => {
+            const modal = document.getElementById('product-details-modal');
+            if(modal.classList.contains('hidden')) return;
+            const overlay = document.getElementById('product-details-overlay');
+            overlay.classList.remove('opacity-100'); overlay.classList.add('opacity-0');
+            modal.firstElementChild.classList.remove('scale-100'); modal.firstElementChild.classList.add('scale-95');
+            setTimeout(() => {
+                overlay.classList.add('hidden'); modal.classList.add('hidden');
+            }, 300);
         };
 
-        window.nextModalImage = (e) => {
-            if(e) e.stopPropagation();
-            if(currentModalImages.length <= 1) return;
-            currentImageIndex = (currentImageIndex + 1) % currentModalImages.length;
-            updateModalGalleryUI();
+        window.closeProductModal = (skipHistory = false) => {
+            window.closeProductModalUI();
+            if (skipHistory !== true && window.location.hash.startsWith('#product-')) {
+                window.history.back();
+            }
         };
-
-        // Touch Swipe logic for Gallery Main Image
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const modalImgWrapper = document.getElementById('modal-main-img').parentElement;
-        modalImgWrapper.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, {passive: true});
-        modalImgWrapper.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleModalSwipe();
-        }, {passive: true});
-
-        function handleModalSwipe() {
-            if (currentModalImages.length <= 1) return;
-            if (touchEndX < touchStartX - 40) window.nextModalImage(); // Swipe left -> next
-            if (touchEndX > touchStartX + 40) window.prevModalImage(); // Swipe right -> prev
-        }
 
         window.selectVariant = (idx) => {
             if(!currentModalProduct || !currentModalProduct.variants) return;
             selectedVariant = currentModalProduct.variants[idx];
-            
-            const btns = document.getElementById('modal-variants-options').children;
-            Array.from(btns).forEach((b, i) => {
-                if(i === idx) { b.classList.add('border-primary', 'text-primary', 'bg-emerald-50'); b.classList.remove('border-gray-200', 'text-gray-600'); }
-                else { b.classList.remove('border-primary', 'text-primary', 'bg-emerald-50'); b.classList.add('border-gray-200', 'text-gray-600'); }
-            });
-            
             document.getElementById('modal-product-price').innerText = `৳ ${selectedVariant.price}`;
         };
 
-        window.closeProductModal = () => {
-            document.getElementById('product-details-overlay').classList.add('opacity-0');
-            document.getElementById('product-details-modal').firstElementChild.classList.remove('scale-100');
-            document.getElementById('product-details-modal').firstElementChild.classList.add('scale-95');
-            setTimeout(() => {
-                document.getElementById('product-details-overlay').classList.add('hidden');
-                document.getElementById('product-details-modal').classList.add('hidden');
-                window.location.hash = '';
-            }, 300);
-        };
-
-        window.addToCart = (product) => {
-            let itemPrice = product.price;
-            let variantName = '';
-            if(selectedVariant) { itemPrice = selectedVariant.price; variantName = selectedVariant.name; }
+        window.addModalProductToCart = () => {
+            if(!currentModalProduct) return;
+            let cartItemId = currentModalProduct.id;
+            let cartItemName = currentModalProduct.name;
+            let cartItemPrice = Number(currentModalProduct.price);
             
-            const existing = cart.find(i => i.id === product.id && i.variant === variantName);
+            // Get correct image for cart
+            let cartItemImage = (currentModalProduct.imageUrls && currentModalProduct.imageUrls.length > 0) ? currentModalProduct.imageUrls[0] : currentModalProduct.imageUrl;
+
+            if(selectedVariant) {
+                cartItemId = `${currentModalProduct.id}-${selectedVariant.weight}`;
+                cartItemName = `${currentModalProduct.name} (${selectedVariant.weight})`;
+                cartItemPrice = Number(selectedVariant.price);
+            }
+
+            const existing = cart.find(item => item.id === cartItemId);
             if (existing) existing.quantity++;
-            else {
-                const img = (product.imageUrls && product.imageUrls.length > 0) ? product.imageUrls[0] : (product.imageUrl || 'https://placehold.co/400x400?text=No+Image');
-                cart.push({ id: product.id, name: product.name, price: itemPrice, image: img, quantity: 1, variant: variantName });
-            }
+            else cart.push({ id: cartItemId, name: cartItemName, price: cartItemPrice, image: cartItemImage, quantity: 1, baseProductId: currentModalProduct.id });
             
-            localStorage.setItem('userCart', JSON.stringify(cart));
-            updateCartCount();
-            window.closeProductModal();
-            window.openCart();
-            showNotification("কার্টে যোগ করা হয়েছে!");
+            updateCartUI(); window.openCart(); window.showNotification("কার্টে যুক্ত করা হয়েছে!");
         };
 
-        function updateCartCount() {
-            const c = document.getElementById('cart-count');
-            c.innerText = cart.reduce((sum, i) => sum + i.quantity, 0);
-            if(cart.length > 0) { c.classList.add('animate-bounce'); setTimeout(()=>c.classList.remove('animate-bounce'), 1000); }
+        // Render Dropdown Categories Dynamically
+        function renderCategoryNav() {
+            const selectContainer = document.getElementById('filter-category');
+            if(!selectContainer) return;
+            const uniqueCategories = [...new Set(allProducts.map(p => p.category).filter(Boolean))];
+            
+            // Preserve current selected category if possible
+            const currentSelected = selectContainer.value || activeCategory;
+            
+            selectContainer.innerHTML = `<option value="all">সব পণ্য</option>` 
+            + uniqueCategories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+            
+            selectContainer.value = currentSelected;
         }
 
-        window.openCart = (skipHash) => {
-            if(!skipHash) window.location.hash = 'cart';
-            renderCart();
-            document.getElementById('checkout-form-area').classList.add('hidden');
-            document.getElementById('cart-content-area').classList.remove('hidden');
-            document.getElementById('cart-action-buttons').classList.remove('hidden');
-            document.getElementById('checkout-action-buttons').classList.add('hidden');
+        window.filterCategory = function(catName, skipHistory = false) {
+            activeCategory = catName; searchQuery = '';
+            document.getElementById('desktop-search').value = ''; document.getElementById('mobile-search').value = '';
             
-            document.getElementById('cart-drawer-overlay').classList.remove('hidden');
-            setTimeout(() => {
-                document.getElementById('cart-drawer-overlay').classList.remove('opacity-0');
-                document.getElementById('cart-drawer').classList.remove('translate-x-full');
-            }, 10);
-        };
+            const selectContainer = document.getElementById('filter-category');
+            if(selectContainer) {
+                selectContainer.value = catName;
+            }
+            
+            renderPublicProducts();
 
-        window.closeCart = () => {
-            document.getElementById('cart-drawer-overlay').classList.add('opacity-0');
-            document.getElementById('cart-drawer').classList.add('translate-x-full');
-            setTimeout(() => {
-                document.getElementById('cart-drawer-overlay').classList.add('hidden');
-                if(window.location.hash === '#cart') window.location.hash = '';
-            }, 300);
-        };
+            if (skipHistory !== true) {
+                const hash = catName === 'all' ? '' : `#category-${encodeURIComponent(catName)}`;
+                window.history.pushState(null, '', hash || window.location.pathname + window.location.search);
+            }
+        }
 
-        function renderCart() {
-            const area = document.getElementById('cart-content-area');
-            const totalEl = document.getElementById('cart-total');
-            area.innerHTML = '';
-            let total = 0;
+        // Dynamic Footer Links Management
+        async function saveFooterLinksToDB() {
+            if(!isAdmin || !auth.currentUser) return;
+            try {
+                await setDoc(doc(db, "settings", "homepage"), { 
+                    usefulLinks: homepageData.usefulLinks,
+                    socialLinks: homepageData.socialLinks
+                }, { merge: true });
+                showNotification("লিংক সেভ হয়েছে!");
+            } catch(e) { showNotification("লিংক সেভ করতে সমস্যা হয়েছে!", true); }
+        }
 
-            if (cart.length === 0) {
-                area.innerHTML = `<div class="flex flex-col items-center justify-center h-full text-gray-400 gap-4"><i class="fa-solid fa-cart-arrow-down text-5xl"></i><p class="font-bold">আপনার কার্ট খালি!</p></div>`;
-                document.getElementById('checkout-btn').disabled = true;
-                document.getElementById('checkout-btn').classList.add('opacity-50', 'cursor-not-allowed');
-            } else {
-                document.getElementById('checkout-btn').disabled = false;
-                document.getElementById('checkout-btn').classList.remove('opacity-50', 'cursor-not-allowed');
-                
-                cart.forEach((item, index) => {
-                    total += item.price * item.quantity;
-                    area.innerHTML += `
-                        <div class="flex gap-4 border-b border-gray-100 pb-4 bg-white p-3 rounded-xl shadow-sm relative">
-                            <img src="${item.image}" class="w-16 h-16 rounded-lg object-cover border border-gray-100">
-                            <div class="flex-1">
-                                <h4 class="font-bold text-sm text-gray-800 leading-tight">${item.name}</h4>
-                                ${item.variant ? `<p class="text-xs text-primary font-bold mt-0.5">${item.variant}</p>` : ''}
-                                <div class="flex justify-between items-center mt-2">
-                                    <span class="font-black text-primary text-sm">৳ ${item.price}</span>
-                                    <div class="flex items-center gap-2 bg-gray-50 rounded-lg p-1 border border-gray-200">
-                                        <button onclick="window.updateQuantity(${index}, -1)" class="w-6 h-6 flex items-center justify-center bg-white rounded shadow-sm text-gray-600 hover:text-primary"><i class="fa-solid fa-minus text-[10px]"></i></button>
-                                        <span class="text-xs font-bold w-4 text-center">${item.quantity}</span>
-                                        <button onclick="window.updateQuantity(${index}, 1)" class="w-6 h-6 flex items-center justify-center bg-white rounded shadow-sm text-gray-600 hover:text-primary"><i class="fa-solid fa-plus text-[10px]"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <button onclick="window.removeFromCart(${index})" class="absolute top-2 right-2 text-gray-300 hover:text-red-500 transition-colors"><i class="fa-solid fa-trash-can text-sm"></i></button>
+        function renderFooterLinks() {
+            const useContainer = document.getElementById('useful-links-container');
+            const socContainer = document.getElementById('social-links-container');
+            if(!useContainer || !socContainer) return;
+
+            // Useful Links
+            useContainer.innerHTML = homepageData.usefulLinks.map((link, idx) => `
+                <li class="relative group/link flex items-center justify-between">
+                    <div class="flex items-center gap-2 flex-1 min-w-0">
+                        <a href="${link.url}" class="hover:text-secondary transition-colors truncate block flex-1 ${isAdmin ? 'pointer-events-none' : ''}">
+                            <span ${isAdmin ? 'contenteditable="true" class="border-b border-dashed border-gray-600 pb-0.5 outline-none focus:border-primary"' : ''} onblur="window.updateUsefulLinkText(${idx}, this.innerText)">${link.title}</span>
+                        </a>
+                    </div>
+                    ${isAdmin ? `
+                    <div class="flex items-center gap-1 opacity-0 group-hover/link:opacity-100 transition-opacity ml-2 shrink-0 admin-controls">
+                        <div class="flex bg-gray-800 rounded overflow-hidden">
+                            <input type="text" value="${link.url}" onchange="window.updateUsefulLinkUrl(${idx}, this.value)" class="w-20 px-1 py-0.5 text-[10px] text-gray-800 outline-none" placeholder="URL">
+                            <button onclick="window.deleteUsefulLink(${idx})" class="bg-red-500 hover:bg-red-600 text-white px-2 py-0.5" title="ডিলিট করুন"><i class="fa-solid fa-trash text-[10px]"></i></button>
                         </div>
-                    `;
-                });
-            }
-            totalEl.innerText = `৳ ${total}`;
+                    </div>` : ''}
+                </li>
+            `).join('');
+
+            // Social Links
+            socContainer.innerHTML = homepageData.socialLinks.map((link, idx) => `
+                <div class="relative group/social">
+                    <a href="${link.url}" class="w-10 h-10 rounded-full bg-white/5 hover:bg-primary flex items-center justify-center text-white transition-colors ${isAdmin ? 'pointer-events-none' : ''}">
+                        <i class="fa-brands ${link.icon}"></i>
+                    </a>
+                    ${isAdmin ? `
+                    <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-gray-800 p-1.5 rounded shadow-xl flex items-center gap-1 opacity-0 group-hover/social:opacity-100 transition-opacity z-10 admin-controls">
+                        <input type="text" value="${link.url}" onchange="window.updateSocialLinkUrl(${idx}, this.value)" class="w-16 px-1 py-0.5 text-[10px] text-gray-800 outline-none rounded" placeholder="URL">
+                        <button onclick="window.deleteSocialLink(${idx})" class="bg-red-500 text-white p-1 rounded"><i class="fa-solid fa-trash text-[10px]"></i></button>
+                    </div>` : ''}
+                </div>
+            `).join('');
         }
 
-        window.updateQuantity = (index, delta) => {
-            cart[index].quantity += delta;
-            if (cart[index].quantity <= 0) cart.splice(index, 1);
-            localStorage.setItem('userCart', JSON.stringify(cart));
-            renderCart(); updateCartCount();
+        // Useful Links Actions
+        window.addUsefulLink = () => {
+            homepageData.usefulLinks.push({ id: Date.now().toString(), title: 'নতুন লিংক', url: '#' });
+            saveFooterLinksToDB(); renderFooterLinks();
+        };
+        window.updateUsefulLinkText = (idx, newText) => {
+            if(homepageData.usefulLinks[idx].title !== newText.trim()) {
+                homepageData.usefulLinks[idx].title = newText.trim();
+                saveFooterLinksToDB();
+            }
+        };
+        window.updateUsefulLinkUrl = (idx, newUrl) => {
+            homepageData.usefulLinks[idx].url = newUrl.trim();
+            saveFooterLinksToDB();
+        };
+        window.deleteUsefulLink = (idx) => {
+            window.showConfirm("এই লিংকটি মুছে ফেলতে চান?", () => {
+                homepageData.usefulLinks.splice(idx, 1);
+                saveFooterLinksToDB(); renderFooterLinks();
+            });
         };
 
-        window.removeFromCart = (index) => {
-            cart.splice(index, 1);
-            localStorage.setItem('userCart', JSON.stringify(cart));
-            renderCart(); updateCartCount();
+        // Social Links Actions
+        window.addSocialLink = () => {
+            homepageData.socialLinks.push({ id: Date.now().toString(), icon: 'fa-facebook', url: '#' });
+            saveFooterLinksToDB(); renderFooterLinks();
+        };
+        window.updateSocialLinkUrl = (idx, newUrl) => {
+            homepageData.socialLinks[idx].url = newUrl.trim();
+            saveFooterLinksToDB();
+        };
+        window.deleteSocialLink = (idx) => {
+            window.showConfirm("সোস্যাল আইকনটি মুছে ফেলতে চান?", () => {
+                homepageData.socialLinks.splice(idx, 1);
+                saveFooterLinksToDB(); renderFooterLinks();
+            });
         };
 
-        window.proceedToCheckout = () => {
-            document.getElementById('cart-content-area').classList.add('hidden');
-            document.getElementById('checkout-form-area').classList.remove('hidden');
-            document.getElementById('cart-action-buttons').classList.add('hidden');
-            document.getElementById('checkout-action-buttons').classList.remove('hidden');
-        };
-
-        window.backToCartItems = () => {
-            document.getElementById('checkout-form-area').classList.add('hidden');
-            document.getElementById('cart-content-area').classList.remove('hidden');
-            document.getElementById('checkout-action-buttons').classList.add('hidden');
-            document.getElementById('cart-action-buttons').classList.remove('hidden');
-        };
-
-        window.submitOrder = async () => {
-            const name = document.getElementById('cust-name').value.trim();
-            const phone = document.getElementById('cust-phone').value.trim();
-            const addr = document.getElementById('cust-address').value.trim();
+        // Cart Logic
+        window.openCart = (skipHistory = false) => { 
+            document.getElementById('cart-drawer-overlay').classList.remove('hidden'); 
+            document.getElementById('cart-drawer').classList.remove('hidden'); 
+            setTimeout(() => { 
+                document.getElementById('cart-drawer-overlay').classList.remove('opacity-0'); 
+                document.getElementById('cart-drawer-overlay').classList.add('opacity-100'); 
+                document.getElementById('cart-drawer').classList.remove('translate-x-full'); 
+            }, 50); 
             
-            if(!name || !phone || !addr) { showNotification("অনুগ্রহ করে সব তথ্য সঠিকভাবে দিন।", true); return; }
+            if (skipHistory !== true) {
+                window.history.pushState(null, '', '#cart');
+            }
+        };
+
+        window.closeCartUI = () => {
+            const drawer = document.getElementById('cart-drawer');
+            if(drawer.classList.contains('hidden')) return;
+            document.getElementById('cart-drawer-overlay').classList.remove('opacity-100'); 
+            document.getElementById('cart-drawer-overlay').classList.add('opacity-0'); 
+            drawer.classList.add('translate-x-full'); 
+            setTimeout(() => { 
+                document.getElementById('cart-drawer-overlay').classList.add('hidden'); 
+                drawer.classList.add('hidden'); 
+            }, 300); 
+        };
+
+        window.closeCart = (skipHistory = false) => { 
+            window.closeCartUI();
+            if (skipHistory !== true && window.location.hash === '#cart') {
+                window.history.back();
+            }
+        };
+        
+        window.addProductToCart = (productId) => {
+            const product = allProducts.find(p => p.id === productId);
+            if (!product) return;
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.quantity++;
+            } else {
+                let cartItemImage = (product.imageUrls && product.imageUrls.length > 0) ? product.imageUrls[0] : product.imageUrl;
+                cart.push({ id: product.id, name: product.name, price: Number(product.price), image: cartItemImage, quantity: 1 });
+            }
+            updateCartUI(); window.openCart(); window.showNotification("কার্টে যুক্ত করা হয়েছে!");
+        };
+        
+        window.updateQty = (cartItemId, delta) => { const idx = cart.findIndex(item => item.id === cartItemId); if (idx > -1) { cart[idx].quantity += delta; if (cart[idx].quantity <= 0) cart.splice(idx, 1); updateCartUI(); } };
+        window.removeCartItem = (cartItemId) => { cart = cart.filter(item => item.id !== cartItemId); updateCartUI(); };
+
+        // Cart Drawer Update
+        function updateCartUI() {
+            const cartCountBadge = document.getElementById('cart-count');
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountBadge.innerText = totalCount;
+            const container = document.getElementById('cart-content-area');
+            let total = 0;
+            if (cart.length === 0) { container.innerHTML = `<div class="text-center text-gray-500 py-16"><p class="font-bold">আপনার শপিং কার্ট খালি আছে।</p></div>`; document.getElementById('cart-total').innerText = `৳ ০`; return; }
+            container.innerHTML = cart.map(item => {
+                total += (item.price * item.quantity);
+                return `<div class="flex gap-4 items-center bg-white p-3 rounded-2xl border mb-3"><img src="${item.image}" class="w-16 h-16 object-cover rounded-xl border flex-shrink-0"><div class="flex-1 min-w-0"><h4 class="font-bold text-xs truncate">${item.name}</h4><div class="text-primary font-extrabold text-sm mt-1">৳ ${item.price}</div></div><div class="flex items-center gap-1 bg-gray-50 rounded-lg p-1 border"><button onclick="window.updateQty('${item.id}', -1)" class="w-6 h-6 hover:bg-gray-200 rounded">-</button><span class="text-xs font-bold w-5 text-center">${item.quantity}</span><button onclick="window.updateQty('${item.id}', 1)" class="w-6 h-6 hover:bg-gray-200 rounded">+</button></div><button onclick="window.removeCartItem('${item.id}')" class="text-red-500 p-2"><i class="fa-solid fa-xmark"></i></button></div>`;
+            }).join('');
+            document.getElementById('cart-total').innerText = `৳ ${total}`;
+        }
+
+        window.proceedToCheckout = () => { if(cart.length === 0) return showNotification("কার্ট খালি!", true); document.getElementById('cart-content-area').classList.add('hidden'); document.getElementById('checkout-form-area').classList.remove('hidden'); document.getElementById('cart-action-buttons').classList.add('hidden'); document.getElementById('checkout-action-buttons').classList.remove('hidden'); };
+        window.backToCartItems = () => { document.getElementById('cart-content-area').classList.remove('hidden'); document.getElementById('checkout-form-area').classList.add('hidden'); document.getElementById('cart-action-buttons').classList.remove('hidden'); document.getElementById('checkout-action-buttons').classList.add('hidden'); };
+        
+        window.submitOrder = async () => {
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const address = document.getElementById('cust-address').value;
+            if(!name || !phone || !address) return showNotification("সকল তথ্য পূরণ করুন!", true);
             
             const btn = document.getElementById('order-submit-btn');
             btn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> প্রসেস হচ্ছে...`;
             btn.disabled = true;
 
-            const totalAmount = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+            const nowIso = new Date().toISOString();
+            const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const orderId = 'ORD-' + Date.now().toString().slice(-6) + Math.floor(Math.random() * 10);
+
+            // Updated order structure matching admin exactly
             const orderData = {
-                customerName: name, customerPhone: phone, customerAddress: addr,
-                items: cart, totalAmount: totalAmount, status: 'pending',
-                date: new Date().toISOString()
+                orderId: orderId,
+                customer: { name, phone, address },
+                customerName: name, // For Admin Table Support
+                customerPhone: phone,
+                customerAddress: address,
+                items: cart,
+                subTotal: totalAmount,
+                deliveryCharge: 0,
+                totalAmount: totalAmount, 
+                totalPrice: totalAmount,  // Updated name mapping to support all variations
+                status: 'new', // Using lowercase 'new' exactly as needed in admin
+                paymentMethod: 'Cash on Delivery',
+                date: nowIso,
+                createdAt: nowIso,
+                newAt: nowIso,
+                statusUpdatedAt: nowIso,
+                timestamp: Date.now()
             };
 
             try {
                 await addDoc(collection(db, "orders"), orderData);
-                cart = []; localStorage.removeItem('userCart');
-                updateCartCount();
-                window.closeCart();
-                document.getElementById('public-alert-modal-overlay').classList.remove('hidden');
-                document.getElementById('public-alert-modal').classList.remove('hidden');
-                setTimeout(() => {
-                    document.getElementById('public-alert-modal-overlay').classList.remove('opacity-0');
-                    document.getElementById('public-alert-modal-content').classList.remove('scale-95');
-                    document.getElementById('public-alert-modal-content').classList.add('scale-100');
-                }, 10);
+                cart = []; updateCartUI(); backToCartItems(); window.closeCart();
+                document.getElementById('cust-name').value = ''; document.getElementById('cust-phone').value = ''; document.getElementById('cust-address').value = '';
                 
-                document.getElementById('cust-name').value = '';
-                document.getElementById('cust-phone').value = '';
-                document.getElementById('cust-address').value = '';
-                window.backToCartItems();
-            } catch(e) {
+                // Show high z-index success modal
+                const modal = document.getElementById('public-alert-modal');
+                const overlay = document.getElementById('public-alert-modal-overlay');
+                overlay.classList.remove('hidden'); modal.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0'); overlay.classList.add('opacity-100');
+                    modal.firstElementChild.classList.remove('scale-95'); modal.firstElementChild.classList.add('scale-100');
+                }, 10);
+
+            } catch (error) {
                 showNotification("অর্ডার প্লেস করতে সমস্যা হয়েছে!", true);
-            } finally {
-                btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> অর্ডার সম্পন্ন করুন`;
-                btn.disabled = false;
             }
+            btn.innerHTML = `<i class="fa-solid fa-circle-check"></i> অর্ডার সম্পন্ন করুন`;
+            btn.disabled = false;
         };
 
         window.closeAlertModal = () => {
-            document.getElementById('public-alert-modal-overlay').classList.add('opacity-0');
-            document.getElementById('public-alert-modal-content').classList.remove('scale-100');
-            document.getElementById('public-alert-modal-content').classList.add('scale-95');
-            setTimeout(() => {
-                document.getElementById('public-alert-modal-overlay').classList.add('hidden');
-                document.getElementById('public-alert-modal').classList.add('hidden');
-            }, 300);
+            const modal = document.getElementById('public-alert-modal');
+            const overlay = document.getElementById('public-alert-modal-overlay');
+            overlay.classList.remove('opacity-100'); overlay.classList.add('opacity-0');
+            modal.firstElementChild.classList.remove('scale-100'); modal.firstElementChild.classList.add('scale-95');
+            setTimeout(() => { overlay.classList.add('hidden'); modal.classList.add('hidden'); }, 300);
         };
 
-        function renderFooterLinks() {
-            const ul = document.getElementById('useful-links-container');
-            ul.innerHTML = '';
-            if(homepageData.usefulLinks) {
-                homepageData.usefulLinks.forEach(l => {
-                    ul.innerHTML += `
-                        <li class="flex items-center gap-2 group relative">
-                            <i class="fa-solid fa-caret-right text-primary opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            <a href="${l.url}" class="hover:text-white transition-colors">${l.title}</a>
-                            <button onclick="window.deleteLink('useful', '${l.id}')" class="admin-controls absolute -right-6 text-red-500 hover:text-red-400"><i class="fa-solid fa-times"></i></button>
-                        </li>
-                    `;
-                });
+        // History Navigation Listener
+        window.addEventListener('popstate', (e) => {
+            const hash = window.location.hash;
+            
+            if (hash === '#cart') {
+                window.closeProductModalUI();
+                window.openCart(true);
+            } else if (hash.startsWith('#product-')) {
+                window.closeCartUI();
+                const id = hash.replace('#product-', '');
+                window.openProductModal(id, true);
+            } else if (hash.startsWith('#category-')) {
+                window.closeCartUI();
+                window.closeProductModalUI();
+                const cat = decodeURIComponent(hash.replace('#category-', ''));
+                window.filterCategory(cat, true);
+            } else {
+                window.closeCartUI();
+                window.closeProductModalUI();
+                window.filterCategory('all', true);
             }
+        });
 
-            const sl = document.getElementById('social-links-container');
-            sl.innerHTML = '';
-            if(homepageData.socialLinks) {
-                homepageData.socialLinks.forEach(l => {
-                    sl.innerHTML += `
-                        <div class="relative group">
-                            <a href="${l.url}" class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center text-white transition-all transform hover:-translate-y-1">
-                                <i class="fa-brands ${l.icon}"></i>
-                            </a>
-                            <button onclick="window.deleteLink('social', '${l.id}')" class="admin-controls absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px]"><i class="fa-solid fa-times"></i></button>
-                        </div>
-                    `;
-                });
-            }
-        }
-
-        window.deleteLink = async (type, id) => {
-            if(!isAdmin) return;
-            window.showConfirm("লিংকটি মুছে ফেলতে চান?", async () => {
-                if(type === 'useful') homepageData.usefulLinks = homepageData.usefulLinks.filter(l => l.id !== id);
-                if(type === 'social') homepageData.socialLinks = homepageData.socialLinks.filter(l => l.id !== id);
-                await setDoc(doc(db, "settings", "homepage"), { usefulLinks: homepageData.usefulLinks, socialLinks: homepageData.socialLinks }, { merge: true });
-                showNotification("মুছে ফেলা হয়েছে!");
-            });
-        };
-
-        window.addUsefulLink = async () => {
-            if(!isAdmin) return;
-            const title = prompt("লিংকের নাম লিখুন (যেমন: প্রাইভেসি পলিসি):");
-            if(!title) return;
-            const url = prompt("লিংক URL দিন:");
-            if(!url) return;
-            homepageData.usefulLinks.push({ id: Date.now().toString(), title, url });
-            await setDoc(doc(db, "settings", "homepage"), { usefulLinks: homepageData.usefulLinks }, { merge: true });
-            showNotification("লিংক যুক্ত হয়েছে!");
-        };
-
-        window.addSocialLink = async () => {
-            if(!isAdmin) return;
-            const icon = prompt("ফন্ট অসাম আইকন ক্লাস দিন (যেমন: fa-facebook-f, fa-twitter):");
-            if(!icon) return;
-            const url = prompt("লিংক URL দিন:");
-            if(!url) return;
-            homepageData.socialLinks.push({ id: Date.now().toString(), icon, url });
-            await setDoc(doc(db, "settings", "homepage"), { socialLinks: homepageData.socialLinks }, { merge: true });
-            showNotification("লিংক যুক্ত হয়েছে!");
-        };
-
-        // Initialize App
-        window.onload = () => {
-            initRealtimeListeners();
-            updateCartCount();
-        };
+        // Initialize Application
+        initRealtimeListeners();
     </script>
 </body>
 </html>
